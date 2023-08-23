@@ -1,0 +1,13 @@
+.logo-1 {
+  color: #88e60e;
+}
+
+.logo-2 {
+  color: #e385da;
+}
+
+ul li a:hover {
+  border-radius: 10%;
+  cursor: pointer;
+  text-decoration: underline;
+}
