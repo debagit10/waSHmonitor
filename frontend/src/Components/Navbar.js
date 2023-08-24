@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="sticky-top">
       <nav class="navbar navbar-expand-lg bg-secondary-subtle">
         <div class="container">
           <a onClick={() => navigate("/")}>

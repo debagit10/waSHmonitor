@@ -16,13 +16,18 @@ const App = () => {
         <div className="sticky-top">
           <Navbar />
         </div>
-        <Routes>
-          <Route path="/" Component={Homepage} />
-          <Route path="/about" Component={About} />
-          <Route path="/questionnaire" Component={Questionnaire} />
-          <Route path="/faq" Component={FAQ} />
-        </Routes>
-        <Footer />
+        <div>
+          <Routes>
+            <Route path="/" Component={Homepage} />
+            <Route path="/about" Component={About} />
+            <Route path="/questionnaire" Component={Questionnaire} />
+            <Route path="/faq" Component={FAQ} />
+          </Routes>
+        </div>
+
+        <div>
+          <Footer />
+        </div>
       </BrowserRouter>
     </div>
   );

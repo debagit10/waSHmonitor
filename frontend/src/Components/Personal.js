@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Personal = () => {
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (event) => {
+    const { id, value, type, checked } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [id]: type === "checkbox" ? checked : value,
+      };
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+  };
+
   return (
     <div>
       <form>
@@ -9,19 +27,35 @@ const Personal = () => {
           <label for="community" class="form-label">
             <h6>What is the name of your community?</h6>
           </label>
-          <input type="text" class="form-control" id="community" />
+          <input
+            type="text"
+            class="form-control"
+            id="community"
+            onChange={handleChange}
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="occupation" class="form-label">
             <h6>Occupation</h6>
           </label>
-          <input type="text" class="form-control" id="occupation" />
+          <input
+            type="text"
+            class="form-control"
+            id="occupation"
+            onChange={handleChange}
+          />
         </div>
         <div class="mb-3">
           <label for="size" class="form-label">
             <h6>Household size</h6>
           </label>
-          <input type="text" class="form-control" id="size" />
+          <input
+            type="text"
+            class="form-control"
+            id="size"
+            onChange={handleChange}
+          />
         </div>
         <div className="mb-3">
           <h6>Gender</h6>
@@ -29,11 +63,12 @@ const Personal = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
-              value="yes"
+              name="gender"
+              id="gender"
+              value="male"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
+            <label class="form-check-label" for="gender">
               Male
             </label>
           </div>
@@ -41,11 +76,12 @@ const Personal = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
-              value="no"
+              name="gender"
+              id="gender"
+              value="female"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
+            <label class="form-check-label" for="gender">
               Female
             </label>
           </div>
@@ -56,11 +92,11 @@ const Personal = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
+              name="age"
+              id="age"
               value="yes"
             />
-            <label class="form-check-label" for="">
+            <label class="form-check-label" for="age">
               Yes
             </label>
           </div>
@@ -81,7 +117,12 @@ const Personal = () => {
           <label for="source" class="form-label">
             <h6> What is your primary source of drinking water?</h6>
           </label>
-          <input type="text" class="form-control" id="source" />
+          <input
+            type="text"
+            class="form-control"
+            id="source"
+            onChange={handleChange}
+          />
         </div>
         <div className="mb-3">
           <h6>Do you treat your drinking water?</h6>
@@ -89,11 +130,12 @@ const Personal = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
+              name="treat"
+              id="treat"
               value="yes"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
+            <label class="form-check-label" for="treat">
               Yes
             </label>
           </div>
@@ -101,11 +143,12 @@ const Personal = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
+              name="treat"
+              id="treat"
               value="no"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
+            <label class="form-check-label" for="treat">
               No
             </label>
           </div>
@@ -116,11 +159,12 @@ const Personal = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
+              name="practice"
+              id="practice"
               value="yes"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
+            <label class="form-check-label" for="practice">
               Yes
             </label>
           </div>
@@ -128,17 +172,18 @@ const Personal = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
+              name="practice"
+              id="practice"
               value="no"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
+            <label class="form-check-label" for="practice">
               No
             </label>
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" onClick={handleSubmit}>
           Submit
         </button>
       </form>
