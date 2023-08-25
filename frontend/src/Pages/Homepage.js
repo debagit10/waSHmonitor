@@ -47,7 +47,10 @@ const Homepage = () => {
                 us to help you.
               </p>
               <a
-                onClick={() => navigate("/questionnaire")}
+                onClick={() => {
+                  navigate("/questionnaire");
+                  window.location.reload();
+                }}
                 class="btn btn-light mt-3"
               >
                 <i class="bi bi-chevron-right"></i>Click to fill
