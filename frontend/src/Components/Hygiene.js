@@ -91,24 +91,52 @@ const Hygiene = () => {
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
-              value="yes"
+              name="toilet"
+              id="toilet"
+              value="WC"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
-              ?
+            <label class="form-check-label" for="toilet">
+              WaterCloset(WC)
             </label>
           </div>
           <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
-              value="no"
+              name="toilet"
+              id="toilet"
+              value="Pit Latrin"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
-              ?
+            <label class="form-check-label" for="toilet">
+              Pit Latrin
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="toilet"
+              id="toilet"
+              value="Composite toilet"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="toilet">
+              Composite toilet
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="toilet"
+              id="toilet"
+              value="Bucket Toilet"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="toilet">
+              Bucket Toilet
             </label>
           </div>
         </div>
@@ -131,11 +159,11 @@ const Hygiene = () => {
               type="radio"
               name="clean"
               id="clean"
-              value="yes"
+              value="Once a week"
               onChange={handleChange}
             />
             <label class="form-check-label" for="clean">
-              ?
+              Once a week
             </label>
           </div>
           <div class="form-check">
@@ -144,11 +172,50 @@ const Hygiene = () => {
               type="radio"
               name="clean"
               id="clean"
-              value="no"
+              value="Once a month"
               onChange={handleChange}
             />
             <label class="form-check-label" for="clean">
-              ?
+              Once a month
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="clean"
+              id="clean"
+              value=" Every weekend"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="clean">
+              Every weekend
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="clean"
+              id="clean"
+              value="Twice a month"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="clean">
+              Twice a month
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="clean"
+              id="clean"
+              value="I don't clean"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="clean">
+              I don't clean
             </label>
           </div>
         </div>
