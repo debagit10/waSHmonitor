@@ -10,7 +10,7 @@ const Wash = () => {
         Water, Sanitation and Hygiene (WASH) tips.
       </h3>
 
-      <div className="row align-items-center justify-content-between">
+      <div className="row align-items-center justify-content-between mt-5">
         <div className="col-md">
           <img
             src={hygiene}

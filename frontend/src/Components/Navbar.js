@@ -45,7 +45,7 @@ const Navbar = () => {
 
               <li class="nav-item  p-2">
                 <a onClick={() => navigate("/about")}>
-                  <h6> About</h6>
+                  <h6> About Us</h6>
                 </a>
               </li>
               <li class="nav-item  p-2">
