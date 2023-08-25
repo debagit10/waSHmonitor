@@ -15,6 +15,11 @@ const Navbar = () => {
               <span className="logo-1">SH</span>
               <span className="logo-2">MONITOR</span>
             </h4>
+            <h6>
+              Water, Sanitation
+              <br />
+              and Hygiene Monitor
+            </h6>
           </a>
           <button
             class="navbar-toggler"
@@ -32,18 +37,18 @@ const Navbar = () => {
             id="navbarNav"
           >
             <ul class="navbar-nav">
-              <li class="nav-item px-2">
+              <li class="nav-item p-2">
                 <a onClick={() => navigate("/")}>
                   <h6> Home</h6>
                 </a>
               </li>
 
-              <li class="nav-item  px-2">
+              <li class="nav-item  p-2">
                 <a onClick={() => navigate("/about")}>
                   <h6> About</h6>
                 </a>
               </li>
-              <li class="nav-item  px-2">
+              <li class="nav-item  p-2">
                 <a onClick={() => navigate("/faq")}>
                   <h6> FAQ</h6>
                 </a>
