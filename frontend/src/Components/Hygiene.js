@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 const Hygiene = () => {
@@ -13,9 +14,43 @@ const Hygiene = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const clean = formData.clean;
+    const dispose = formData.dispose;
+    const excrete = formData.excrete;
+    const image = formData.image;
+    const infectedfrom = formData.infectedfrom;
+    const infection = formData.infection;
+    const publictoilet = formData.public;
+    const sick = formData.sick;
+    const sickness = formData.sickness;
+    const toilet = formData.toilet;
+    const other = formData.others;
+
     console.log(formData);
+    const config = { headers: { "Content-type": "application/json" } };
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/hygiene",
+        {
+          clean,
+          dispose,
+          excrete,
+          image,
+          infectedfrom,
+          infection,
+          publictoilet,
+          sick,
+          sickness,
+          toilet,
+          other,
+        },
+        config
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -81,7 +116,7 @@ const Hygiene = () => {
           <input
             type="text"
             class="form-control"
-            id="from?"
+            id="infectedfrom"
             onChange={handleChange}
           />
         </div>
@@ -297,7 +332,7 @@ const Hygiene = () => {
           <input
             class="form-control"
             type="file"
-            id="formFile"
+            id="image"
             onChange={handleChange}
           />
         </div>

@@ -6,7 +6,7 @@ import defecation from "../Tips/defecation.jpg";
 const Wash = () => {
   return (
     <div>
-      <h3 className="text-center" style={{ textDecoration: "underline" }}>
+      <h3 className="text-center">
         Water, Sanitation and Hygiene (WASH) tips.
       </h3>
 
@@ -47,18 +47,20 @@ const Wash = () => {
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
               <div class="modal-body">
-                <b>
-                  Washing your hands with soap removes germs that can make you
-                  ill. Maintaining good personal hygiene will also help prevent
-                  you from spreading diseases to other people.
-                </b>
                 <img
                   src={hygiene}
                   alt="Image practicing hand washing"
                   className="rounded img-fluid  align-items-center"
                 />
-                <br />
-                <br />
+                <p>
+                  Good personal hygiene is one of the best ways to protect
+                  yourself from getting gastro or infectious diseases such as
+                  COVID-19, colds and flu.
+                  <br /> Washing your hands with soap removes germs that can
+                  make you ill. Maintaining good personal hygiene will also help
+                  prevent you from spreading diseases to other people.
+                </p>
+
                 <ul>
                   <h6>
                     To avoid getting sick, wash your hands properly for at least
@@ -144,9 +146,14 @@ const Wash = () => {
                 <br />
                 <br />
                 <p>
-                  People can be exposed to those chemicals by eating fruits and
-                  vegetables grown near the trash-fire or in garden soil tilled
-                  with the ashes.
+                  Smoke from any fire can affect your health, your family's
+                  health and your neighbor's health. The smoke from backyard
+                  burning is released close to the ground where people can
+                  easily breathe it. The smoke from the fire can deposit
+                  chemicals on garden vegetables and garden soil.
+                  <br /> People can be exposed to those chemicals by eating
+                  fruits and vegetables grown near the trash-fire or in garden
+                  soil tilled with the ashes.
                   <br />
                   <br /> Young children may be at greater risk than adults
                   because of their playing behaviors, their small size and their
@@ -230,6 +237,11 @@ const Wash = () => {
                 <br />
                 <br />
                 <p>
+                  Open defecation refers to the practice of people relieving
+                  themselves in open, public spaces rather than using proper
+                  sanitation facilities such as toilets. This practice poses
+                  significant health, environmental, and social challenges.
+                  <br /> <br />
                   Health Risks: Open defecation increases the risk of diseases
                   spreading through the contamination of water sources and soil
                   with fecal matter. Waterborne diseases like diarrhea, cholera,

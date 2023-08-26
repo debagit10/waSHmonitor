@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Personal = () => {
   const [formData, setFormData] = useState({});
@@ -13,10 +14,44 @@ const Personal = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    const age = formData.age;
+    const community = formData.community;
+    const gender = formData.gender;
+    const occupation = formData.occupation;
+    const practice = formData.practice;
+    const size = formData.size;
+    const source = formData.source;
+    const treat = formData.treat;
+
+    console.log(
+      age,
+      community,
+      gender,
+      occupation,
+      practice,
+      size,
+      source,
+      treat
+    );
+
+    const config = { headers: { "Content-type": "application/json" } };
+    const response = await axios.post(
+      "http://localhost:5000/personal",
+      {
+        age,
+        community,
+        gender,
+        occupation,
+        practice,
+        size,
+        source,
+        treat,
+      },
+      config
+    );
   };
 
   return (
@@ -94,22 +129,89 @@ const Personal = () => {
               type="radio"
               name="age"
               id="age"
-              value="yes"
+              value="< 18"
+              onChange={handleChange}
             />
             <label class="form-check-label" for="age">
-              Yes
+              under 18
             </label>
           </div>
           <div class="form-check">
             <input
               class="form-check-input"
               type="radio"
-              name=""
-              id=""
-              value="no"
+              name="age"
+              id="age"
+              value="18-24 years old"
+              onChange={handleChange}
             />
-            <label class="form-check-label" for="">
-              No
+            <label class="form-check-label" for="age">
+              18-24 years old
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="age"
+              id="age"
+              value="25-34 years old"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="age">
+              25-34 years old
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="age"
+              id="age"
+              value="35-44 years old"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="age">
+              35-44 years old
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="age"
+              id="age"
+              value="45-54 years old"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="age">
+              45-54 years old
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="age"
+              id="age"
+              value="55-64 years old"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="age">
+              55-64 years old
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="age"
+              id="age"
+              value="65 years +"
+              onChange={handleChange}
+            />
+            <label class="form-check-label" for="age">
+              65 years +
             </label>
           </div>
         </div>
