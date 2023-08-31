@@ -3,13 +3,7 @@ const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
 const pool = require("./db");
 const PORT = process.env.PORT || 5000;
-const cloudinary = require("cloudinary").v2;
-
-cloudinary.config({
-  cloud_name: "debacodes",
-  api_key: "637575965933943",
-  api_secret: "2l69-9Asmo8oncTPLzKdMowlplQ",
-});
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -41,7 +35,7 @@ app.post("/hygiene", async (req, res) => {
     clean,
     dispose,
     excrete,
-    image,
+    pic,
     infectedfrom,
     infection,
     publictoilet,
@@ -52,18 +46,16 @@ app.post("/hygiene", async (req, res) => {
   } = req.body;
 
   const id = uuidv4();
-  console.log(image);
+  console.log(pic);
 
   try {
-    const pic = await cloudinary.uploader.upload(image);
-    console.log(pic);
     const response = await pool.query(
       "INSERT INTO personalHygiene(id,clean,excrete,image,publictoilet,sickness,sickcount,infection,toilet,infectedfrom,dispose,other) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)",
       [
         id,
         clean,
         excrete,
-        image,
+        pic,
         publictoilet,
         sickness,
         sick,
@@ -74,6 +66,9 @@ app.post("/hygiene", async (req, res) => {
         other,
       ]
     );
+    if (response) {
+      res.send(pic);
+    }
   } catch (error) {
     console.error(error);
   }

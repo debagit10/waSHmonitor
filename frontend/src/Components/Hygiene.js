@@ -1,8 +1,60 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Hygiene = () => {
   const [formData, setFormData] = useState({});
+  const [pic, setPic] = useState();
+
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          console.log(latitude, longitude);
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+        }
+      );
+    }
+  });
+
+  const postDetails = async (pics) => {
+    console.log(pics);
+    if (
+      pics.type === "image/jpeg" ||
+      pics.type === "image/png" ||
+      pics.type === "image/jpg"
+    ) {
+      const data = new FormData();
+      data.append("file", pics);
+      data.append("upload_preset", "chat-app");
+      data.append("cloud_name", "debacodes");
+      await fetch("https://api.cloudinary.com/v1_1/debacodes/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setPic(data.url.toString());
+          console.log(pic);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+  //console.log(pic);
+
+  {
+    /*const [file, setFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+console.log(file);*/
+  }
 
   const handleChange = (event) => {
     const { id, value, type, checked } = event.target;
@@ -19,7 +71,6 @@ const Hygiene = () => {
     const clean = formData.clean;
     const dispose = formData.dispose;
     const excrete = formData.excrete;
-    const image = formData.image;
     const infectedfrom = formData.infectedfrom;
     const infection = formData.infection;
     const publictoilet = formData.public;
@@ -28,7 +79,7 @@ const Hygiene = () => {
     const toilet = formData.toilet;
     const other = formData.others;
 
-    console.log(formData);
+    console.log(formData, pic);
     const config = { headers: { "Content-type": "application/json" } };
     try {
       const response = await axios.post(
@@ -37,7 +88,7 @@ const Hygiene = () => {
           clean,
           dispose,
           excrete,
-          image,
+          pic,
           infectedfrom,
           infection,
           publictoilet,
@@ -55,7 +106,7 @@ const Hygiene = () => {
 
   return (
     <div>
-      <form>
+      <form encType="multipart/form-data">
         <h4 className="text-center">Personal Hygiene</h4>
         <div class="mb-3">
           <label for="dispose" class="form-label">
@@ -333,7 +384,8 @@ const Hygiene = () => {
             class="form-control"
             type="file"
             id="image"
-            onChange={handleChange}
+            accept="image/*"
+            onChange={(e) => postDetails(e.target.files[0])}
           />
         </div>
         <button type="submit" class="btn btn-primary" onClick={handleSubmit}>
